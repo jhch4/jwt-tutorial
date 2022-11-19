@@ -1,0 +1,32 @@
+spring:
+
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+    defer-datasource-initialization: true
+
+jwt:
+  header: Authorization
+  #HS512 알고리즘을 사용할 것이기 때문에 512bit, 즉 64byte 이상의 secret key를 사용해야 한다.
+  #echo 'albert einstein: I cannot believe that God would choose to play dice with the universe' - base64인코딩
+  secret: YWxiZXJ0IGVpbnN0ZWluOiBJIGNhbm5vdCBiZWxpZXZlIHRoYXQgR29kIHdvdWxkIGNob29zZSB0byBwbGF5IGRpY2Ugd2l0aCB0aGUgdW5pdmVyc2U=
+  token-validity-in-seconds: 86400
+
+logging:
+  level:
+    com.startBoot: DEBUG
