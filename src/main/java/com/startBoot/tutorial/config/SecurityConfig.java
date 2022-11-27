@@ -37,12 +37,12 @@ public class SecurityConfig {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public PasswordEncoder passwordEncoder() { // 비밀번호를 암호화해서 저장해주는 기능(단반향)
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
+    public WebSecurityCustomizer webSecurityCustomizer() { // 아래 url들을 허용
         return (web) -> web.ignoring().antMatchers("/h2-console/**"
                 , "/favicon.ico"
                 , "/error");
